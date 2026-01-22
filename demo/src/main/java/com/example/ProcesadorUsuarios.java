@@ -6,6 +6,8 @@ import java.util.List;
  * Esta clase procesa listas de usuarios. Contiene 'code smells' intencionados.
  */
 public class ProcesadorUsuarios {
+    private static final int ROL_ADMIN = 1;
+    private static final int ROL_INVITADO = 2;
 
     // Método con 'code smells': largo, números mágicos, malos nombres.
     public String procesarLista(List<String> dataList) {
@@ -19,11 +21,11 @@ public class ProcesadorUsuarios {
                 int r = Integer.parseInt(parts[1]);
 
                 // Número Mágico: 1 es Admin
-                if (r == 1) {
+                if (r == ROL_ADMIN) {
                     admins += n + ",";
                 }
                 // Número Mágico: 2 es Invitado
-                else if (r == 2) {
+                else if (r == ROL_INVITADO) {
                     invitados += n + ",";
                 }
             }
