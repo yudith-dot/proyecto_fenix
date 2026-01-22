@@ -1,20 +1,37 @@
 package com.example;
 import java.util.ArrayList;
 import java.util.List;
+// Cambio para activar el servidor CI - 22/01/2026
 
 /**
- * Esta clase procesa listas de usuarios. Contiene 'code smells' intencionados.
+ * Esta clase procesa listas de usuarios.
+ * Se encarga de clasificar a los usuarios en administradores o invitados.
  */
 public class ProcesadorUsuarios {
     private static final int ROL_ADMIN = 1;
     private static final int ROL_INVITADO = 2;
-    procesarAdmin(String nombre) {
+    
+ /**
+     * Acumula el nombre del administrador en una cadena.
+     * @param nombre Nombre del usuario administrador.
+     */
+    private void procesarAdmin(String nombre) {
         admins += nombre + ",";
     }
-    procesarInvitado(String nombre) {
+    /**
+     * Acumula el nombre del invitado en una cadena.
+     * @param nombre Nombre del usuario invitado.
+     */
+    private void procesarInvitado(String nombre) {
         invitados += nombre + ",";
     }
-    // Método con 'code smells': largo, números mágicos, malos nombres.
+
+    /**
+     * Procesa una lista de usuarios en formato "nombre:rol".
+     *
+     * @param usuarios lista de usuarios en formato String.
+     * @return resumen de administradores e invitados.
+     */
     public String procesarLista(List<String> usuarios) {
         String admins = "";
         String invitados = "";
